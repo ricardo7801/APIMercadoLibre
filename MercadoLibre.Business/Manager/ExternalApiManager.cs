@@ -32,6 +32,7 @@ namespace MercadoLibre.Business.Manager
 
         private object CalculateAdditionalInfo(string component, string value)
         {
+            return null;//TODO: Calculate additional info
         }
 
         private bool IsComponentIncluded(string component)
