@@ -32,7 +32,23 @@ namespace MercadoLibre.Business.Manager
 
         private object CalculateAdditionalInfo(string component, string value)
         {
-            return null;//TODO: Calculate additional info
+            object result = null;
+
+            switch (component)
+            {
+                case "NUMBER_OUTPUT":
+                    {
+                        result = NumberToText(long.Parse(value.Trim()));
+                        break;
+                    }
+                case "NUMBER_UNIT_OUTPUT":
+                    {
+                        result = new NumberUnit(value);
+                        break;
+                    }
+            }
+
+            return result;
         }
 
         private bool IsComponentIncluded(string component)
@@ -51,7 +67,7 @@ namespace MercadoLibre.Business.Manager
                 {
                     if (IsComponentIncluded(c.Component))
                     {
-                        ComponentResponseDto componentResponseDto = new ComponentResponseDto { Component = c.Component, Label = c.Label };
+                        ComponentResponseDto componentResponseDto = new ComponentResponseDto { Component = c.Component, Label = c.Label, Attributes = new List<AttributeResponseDto>() };
 
                         c.Attributes.ForEach(a =>
                         {
@@ -84,6 +100,11 @@ namespace MercadoLibre.Business.Manager
             return itemResponse;
         }
 
+        private string NumberToText(long number)
+        {
+            return "Número a letras";
+        }
+
         private AttributeDto SearchAttribute(ItemDto item, string attributeId)
         {
             foreach (AttributeDto attribute in item.Attributes)
@@ -95,6 +116,25 @@ namespace MercadoLibre.Business.Manager
             }
 
             return null;
+        }
+
+        private class NumberUnit
+        {
+            public NumberUnit(string value)
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    string[] splited = value.Split(" ", System.StringSplitOptions.RemoveEmptyEntries);
+                    if (splited.Length > 1)
+                    {
+                        Number = splited[0].Trim();
+                        Unit = splited[1].Trim();
+                    }
+                }
+            }
+
+            public string Number { get; set; }
+            public string Unit { get; set; }
         }
     }
 }

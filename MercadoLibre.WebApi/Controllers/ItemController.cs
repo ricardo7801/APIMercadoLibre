@@ -2,7 +2,7 @@
 // © Todos los derechos reservados
 // </copyright>
 using MercadoLibre.Business;
-using MercadoLibre.Domain.Dto;
+using MercadoLibre.Domain.Dto.Response;
 using MercadoLibre.Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace MercadoLibre.WebApi.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<ItemDto> Get(string id)
+        public ActionResult<ItemResponseDto> Get(string id)
         {
             return BusinessFacade.ExternalApiClient.GetItem(id, ConfigurationStore.ExternalApiUrl);
         }
