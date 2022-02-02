@@ -1,6 +1,7 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
+using MercadoLibre.Business.Util;
 using MercadoLibre.DataAccess;
 using MercadoLibre.Domain.Dto;
 using MercadoLibre.Domain.Dto.Response;
@@ -38,7 +39,7 @@ namespace MercadoLibre.Business.Manager
             {
                 case "NUMBER_OUTPUT":
                     {
-                        result = NumberToText(long.Parse(value.Trim()));
+                        result = NumberUtils.ToNaturalLanguage(value);
                         break;
                     }
                 case "NUMBER_UNIT_OUTPUT":
@@ -98,11 +99,6 @@ namespace MercadoLibre.Business.Manager
             });
 
             return itemResponse;
-        }
-
-        private string NumberToText(long number)
-        {
-            return "Número a letras";
         }
 
         private AttributeDto SearchAttribute(ItemDto item, string attributeId)
