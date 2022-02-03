@@ -3,7 +3,6 @@
 // </copyright>
 using MercadoLibre.Business;
 using MercadoLibre.Domain.Dto.Response;
-using MercadoLibre.Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -11,20 +10,20 @@ namespace MercadoLibre.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItemController : ControllerBase
+    public class StatController : ControllerBase
     {
-        [HttpGet("{id}")]
-        public ActionResult<ItemResponseDto> Get(string id)
+        [HttpGet("{type}")]
+        public ActionResult<StatsDto> Get(string type)
         {
             try
             {
-                ItemResponseDto response = BusinessFacade.ExternalApiClient.GetItem(id, ConfigurationStore.ExternalApiUrl);
+                StatsDto response = BusinessFacade.Statistics.GetStatistics(type);
                 response.IsValid = true;
                 return response;
             }
             catch (Exception ex)
             {
-                return new ItemResponseDto { IsValid = false, ErrorMessage = ex.Message };
+                return new StatsDto { IsValid = false, ErrorMessage = ex.Message };
             }
         }
     }

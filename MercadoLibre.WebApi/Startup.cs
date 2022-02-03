@@ -1,6 +1,7 @@
 ﻿// <copyright company="Aranda Software">
 // © Todos los derechos reservados
 // </copyright>
+using MercadoLibre.Business;
 using MercadoLibre.Domain.Entity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,7 @@ namespace MercadoLibre.WebApi
             Configuration = configuration;
 
             ConfigurationStore.ExternalApiUrl = Configuration.GetValue<string>("ExternalApiUrl");
+            BusinessFacade.QueryRecord.SetConnectionString(Configuration.GetValue<string>("ConnectionString"));
         }
 
         public IConfiguration Configuration { get; }

@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace MercadoLibre.Domain.Dto.Response
 {
     [DataContract]
-    public class ItemResponseDto
+    public class ItemResponseDto : ResponseDto
     {
         [DataMember(Name = "merged_groups")]
         public List<GroupResponseDto> Groups { get; set; }

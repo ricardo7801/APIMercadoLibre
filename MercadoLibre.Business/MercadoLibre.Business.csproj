@@ -9,8 +9,4 @@
     <ProjectReference Include="..\MercadoLibre.Domain\MercadoLibre.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Processing\" />
-  </ItemGroup>
-
 </Project>

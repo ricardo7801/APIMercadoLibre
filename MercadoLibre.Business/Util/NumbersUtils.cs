@@ -5,8 +5,16 @@ using System;
 
 namespace MercadoLibre.Business.Util
 {
+    /// <summary>
+    /// Utilidades para datos numéricos
+    /// </summary>
     public static class NumberUtils
     {
+        /// <summary>
+        /// Convierte un numero a lenguaje natural en idioma Español
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
         public static string ToNaturalLanguage(string num)
         {
             string res, dec = "";
@@ -34,6 +42,11 @@ namespace MercadoLibre.Business.Util
             return res;
         }
 
+        /// <summary>
+        /// Logica de conversion a lenguaje natural
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private static string ToText(double value)
         {
             string Num2Text = "";

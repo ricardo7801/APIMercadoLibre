@@ -9,11 +9,20 @@ using System.Collections.Generic;
 
 namespace MercadoLibre.Business.Manager
 {
+    /// <summary>
+    /// Gestión de Consulta de Api externa de Mercadolibre
+    /// </summary>
     public class ExternalApiManager
     {
         internal ExternalApiManager()
         { }
 
+        /// <summary>
+        /// Obtener un Item con la operación de merge de sus atributos con los grupos del dominio
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public ItemResponseDto GetItem(string id, string url)
         {
             ItemResponseDto itemResponse = null;
@@ -25,12 +34,19 @@ namespace MercadoLibre.Business.Manager
                 if (domain != null)
                 {
                     itemResponse = MergeAttributes(item, domain);
+                    BusinessFacade.QueryRecord.CreateQueryRecord(item.DomainId, item.Id);
                 }
             }
 
             return itemResponse;
         }
 
+        /// <summary>
+        /// Calcular Información adicional para tipos de componente NUMBER y NUMBER_UNIT
+        /// </summary>
+        /// <param name="component"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private object CalculateAdditionalInfo(string component, string value)
         {
             object result = null;
@@ -52,11 +68,22 @@ namespace MercadoLibre.Business.Manager
             return result;
         }
 
+        /// <summary>
+        /// Determina si el componente se incluye en la respuesta
+        /// </summary>
+        /// <param name="component"></param>
+        /// <returns></returns>
         private bool IsComponentIncluded(string component)
         {
             return new List<string> { "NUMBER_OUTPUT", "BOOLEAN_OUTPUT", "TEXT_OUTPUT", "NUMBER_UNIT_OUTPUT" }.Contains(component);
         }
 
+        /// <summary>
+        /// Realiza operacion de merge de atributos de item con gurpos de su dominio
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="domain"></param>
+        /// <returns></returns>
         private ItemResponseDto MergeAttributes(ItemDto item, DomainDto domain)
         {
             ItemResponseDto itemResponse = new ItemResponseDto { Id = item.Id, Title = item.Title, Groups = new List<GroupResponseDto>() };
@@ -101,6 +128,12 @@ namespace MercadoLibre.Business.Manager
             return itemResponse;
         }
 
+        /// <summary>
+        /// Busca un atributo de un item por su id en los grupos de su dominio
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="attributeId"></param>
+        /// <returns></returns>
         private AttributeDto SearchAttribute(ItemDto item, string attributeId)
         {
             foreach (AttributeDto attribute in item.Attributes)
@@ -114,6 +147,9 @@ namespace MercadoLibre.Business.Manager
             return null;
         }
 
+        /// <summary>
+        /// Clase privada para manejar struct de retorno de componentes tipo NUMBER_UNIT
+        /// </summary>
         private class NumberUnit
         {
             public NumberUnit(string value)
