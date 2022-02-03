@@ -1,4 +1,4 @@
-﻿// <copyright company="Aranda Software">
+﻿// <copyright company="Ricardo Chicangana">
 // © Todos los derechos reservados
 // </copyright>
 using System;
