@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1758
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoLibre.WebApi", "MercadoLibre.WebApi\MercadoLibre.WebApi.csproj", "{182A4E86-425C-4626-B81A-72ABF9D2FAEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoLibre.WebApi", "MercadoLibre.WebApi\MercadoLibre.WebApi.csproj", "{182A4E86-425C-4626-B81A-72ABF9D2FAEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoLibre.DataAccess", "..\MercadoLibre.DataAccess\MercadoLibre.DataAccess.csproj", "{79DA8BAE-D911-4235-BBC5-7B25BC316E0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoLibre.Business", "MercadoLibre.Business\MercadoLibre.Business.csproj", "{438AB587-4460-4725-9F54-781C8657D887}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoLibre.Business", "MercadoLibre.Business\MercadoLibre.Business.csproj", "{438AB587-4460-4725-9F54-781C8657D887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoLibre.Domain", "MercadoLibre.Domain\MercadoLibre.Domain.csproj", "{ACE07FC8-8406-43B2-86F6-D5FC0A073359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoLibre.Domain", "MercadoLibre.Domain\MercadoLibre.Domain.csproj", "{ACE07FC8-8406-43B2-86F6-D5FC0A073359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoLibre.DataAccess", "MercadoLibre.DataAccess\MercadoLibre.DataAccess.csproj", "{5CBC2532-2F83-4E5A-8A94-940A622C2D92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{182A4E86-425C-4626-B81A-72ABF9D2FAEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{182A4E86-425C-4626-B81A-72ABF9D2FAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{182A4E86-425C-4626-B81A-72ABF9D2FAEF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{79DA8BAE-D911-4235-BBC5-7B25BC316E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79DA8BAE-D911-4235-BBC5-7B25BC316E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79DA8BAE-D911-4235-BBC5-7B25BC316E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79DA8BAE-D911-4235-BBC5-7B25BC316E0A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{438AB587-4460-4725-9F54-781C8657D887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{438AB587-4460-4725-9F54-781C8657D887}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{438AB587-4460-4725-9F54-781C8657D887}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{ACE07FC8-8406-43B2-86F6-D5FC0A073359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACE07FC8-8406-43B2-86F6-D5FC0A073359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACE07FC8-8406-43B2-86F6-D5FC0A073359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CBC2532-2F83-4E5A-8A94-940A622C2D92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CBC2532-2F83-4E5A-8A94-940A622C2D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CBC2532-2F83-4E5A-8A94-940A622C2D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CBC2532-2F83-4E5A-8A94-940A622C2D92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
